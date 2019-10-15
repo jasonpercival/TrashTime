@@ -33,6 +33,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         offset = player.transform.position - transform.position;
+        Debug.Log(offset);
         //HideMouse();
     }
 
@@ -61,7 +62,7 @@ public class CameraController : MonoBehaviour
 
             Debug.Log("X = " + xrotation + ", Y = " + yrotation);
 
-           // Vector3 camPos = Quaternion.Euler(xrotation, yrotation, 0) * -player.transform.forward * setDistance;
+            // Vector3 camPos = Quaternion.Euler(xrotation, yrotation, 0) * -player.transform.forward * setDistance;
 
             //transform.position = camPos + player.transform.position + pivotPos;
             //transform.LookAt(player.transform.position + pivotPos);
@@ -73,10 +74,11 @@ public class CameraController : MonoBehaviour
             var newRot = Quaternion.LookRotation(player.transform.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, newRot, cameraSpeed * Time.deltaTime);
 
-            Vector3 newPos = player.transform.position - player.transform.forward * offset.z * zoom - player.transform.up * offset.y * zoom * 1.2f;
+            //Vector3 newPos = player.transform.position - player.transform.forward * offset.z * zoom - player.transform.up * offset.y * zoom * 1.2f;
+            Vector3 newPos = player.transform.position - offset;
             transform.position = Vector3.Slerp(transform.position, newPos, cameraSpeed * Time.deltaTime);
         }
-        
+
     }
 
     //public static void HideMouse() => Cursor.lockState = CursorLockMode.Locked;
