@@ -34,7 +34,6 @@ public class CameraController : MonoBehaviour
     {
         offset = player.transform.position - transform.position;
         Debug.Log(offset);
-        //HideMouse();
     }
 
     private void Update()
@@ -80,9 +79,4 @@ public class CameraController : MonoBehaviour
         }
 
     }
-
-    //public static void HideMouse() => Cursor.lockState = CursorLockMode.Locked;
-    //public static void ShowMouse() => Cursor.lockState = CursorLockMode.Locked;
-
-
 }

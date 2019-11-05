@@ -5,8 +5,10 @@ using UnityEngine;
 public class PickupController : MonoBehaviour
 {
 
+    public AudioClip pickupSound;
     private Animator anim;
     private bool isPickupReady = false;
+    
 
     void Start()
     {
@@ -15,10 +17,15 @@ public class PickupController : MonoBehaviour
 
     void Update()
     {
-        
-        if (isPickupReady && Input.GetKeyDown(KeyCode.E))
+
+        if (isPickupReady && (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1")))
         {
             Debug.Log("Picked Up");
+            GameManager.Instance.UpdateScore();
+            if (pickupSound)
+            {
+                SoundManager.Instance.PlaySound(pickupSound);
+            }
             Destroy(gameObject);
         }
     }

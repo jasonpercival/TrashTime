@@ -1,0 +1,3 @@
+- jump = nitro boost
+- running into garbage cans make them knock over and they can't be collected
+- ranking with names of best players

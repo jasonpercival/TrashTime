@@ -19,7 +19,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
+        if (!GameManager.Instance.isGameActive) return;
+               
         float vertAxis = Input.GetAxis("Vertical");
         float hortAxis = Input.GetAxis("Horizontal");   
         

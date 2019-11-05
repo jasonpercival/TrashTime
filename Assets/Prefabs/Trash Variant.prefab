@@ -1,49 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &464550101
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8261214897156041312}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 20.671234, y: 8.255419, z: 6.6561217}
-  m_Center: {x: 7.1699524, y: 4.1178064, z: 0.00000059604645}
---- !u!95 &464550103
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8261214897156041312}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b0103b35e8e39364bbb1fdc7ef242b1f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &464550102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8261214897156041312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fd08f48344f8ab4195275b450676cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8261214897155892074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 182538, guid: 45358a775a161e24ea8d8a3a4dac449e, type: 3}
       propertyPath: m_Name
-      value: Trash
+      value: Trash Variant
       objectReference: {fileID: 0}
     - target: {fileID: 475764, guid: 45358a775a161e24ea8d8a3a4dac449e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -99,23 +55,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 475764, guid: 45358a775a161e24ea8d8a3a4dac449e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 475764, guid: 45358a775a161e24ea8d8a3a4dac449e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 475764, guid: 45358a775a161e24ea8d8a3a4dac449e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.08
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45358a775a161e24ea8d8a3a4dac449e, type: 3}
---- !u!1 &8261214897156041312 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 182538, guid: 45358a775a161e24ea8d8a3a4dac449e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8261214897155892074}
-  m_PrefabAsset: {fileID: 0}
