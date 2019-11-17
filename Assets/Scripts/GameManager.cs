@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowTutorial()
     {
-        throw new NotImplementedException();
+        LoadLevel("Tutorial");
     }
 
     public void QuitGame()
@@ -160,9 +160,9 @@ public class GameManager : MonoBehaviour
         Invoke("LoadMainMenu", 5);
     }
 
-    public void UpdateScore()
+    public void UpdateScore(int amount)
     {
-        playerScore++;
+        playerScore += amount;
         //trashCollected++;
     }
 

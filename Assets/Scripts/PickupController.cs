@@ -8,7 +8,7 @@ public class PickupController : MonoBehaviour
     public AudioClip pickupSound;
     private Animator anim;
     private bool isPickupReady = false;
-    
+    public int pickupScoreAmount = 10;    
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class PickupController : MonoBehaviour
         if (isPickupReady && (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1")))
         {
             Debug.Log("Picked Up");
-            GameManager.Instance.UpdateScore();
+            GameManager.Instance.UpdateScore(pickupScoreAmount);
             if (pickupSound)
             {
                 SoundManager.Instance.PlaySound(pickupSound);
