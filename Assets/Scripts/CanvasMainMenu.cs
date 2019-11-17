@@ -18,9 +18,10 @@ public class CanvasMainMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        btnStart.onClick.AddListener(GameManager.Instance.StartGame);
+        //btnStart.onClick.AddListener(GameManager.Instance.StartGame);
+        btnStart.onClick.AddListener(GameManager.Instance.ShowTutorial);
         btnOptions.onClick.AddListener(ShowOptions);
-        btnTutorial.onClick.AddListener(GameManager.Instance.ShowTutorial);
+        //btnTutorial.onClick.AddListener(GameManager.Instance.ShowTutorial);
         btnQuit.onClick.AddListener(GameManager.Instance.QuitGame);
 
         GameManager.Instance.SetGameState(GameState.MAIN);
