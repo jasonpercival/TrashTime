@@ -13,8 +13,10 @@ public class GameManager : MonoBehaviour
     static GameManager _instance = null;
     public GameState gameState { get; private set; }
 
-    public int playerScore = 0;     // trash that was succesfully dumped
-    public int trashCollected = 0;  // trash collected but not dumped yet
+    public int playerScore = 0;
+    public float speedBoostFuel = 3.0f;
+    public float speedBoostFuelMax = 3.0f;
+    
     public float gameTime = 60;     // maximum time per game in seconds
     public float timeLeft = 0;      // current time left 
 
@@ -93,7 +95,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         playerScore = 0;
-        trashCollected = 0;
+        speedBoostFuel = speedBoostFuelMax;
         timeLeft = gameTime;
         isGameActive = false;
         isGameOver = false;

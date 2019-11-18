@@ -6,9 +6,10 @@ public class Player : MonoBehaviour
     CharacterController characterController;
 
     public float speed = 6.0f;
-    public float jumpSpeed = 8.0f;
+    private float speedBoost = 0.0f;
+
     public float gravity = 20.0f;
-    public float rotateSpeed = 3.0f;
+    public float rotateSpeed = 3.0f;    
 
     private Vector3 moveDirection = Vector3.zero;
 
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // prevent updates if the game is not active
         if (!GameManager.Instance.isGameActive) return;
                
         float vertAxis = Input.GetAxis("Vertical");
@@ -26,18 +28,28 @@ public class Player : MonoBehaviour
         
         transform.Rotate(0.0f, hortAxis * rotateSpeed, 0.0f);
 
-
+        float deltaTime = Time.deltaTime;        
+        
         if (characterController.isGrounded)
         {
-            // We are grounded, so recalculate
-            // move direction directly from axes
-
+            // We are grounded, so recalculate move direction directly from axes
             moveDirection = transform.forward * vertAxis;
-            moveDirection *= speed;
+            moveDirection *= (speed + speedBoost);
 
-            if (Input.GetButton("Jump"))
+            // Booster activation
+            if (Input.GetButton("Jump") && GameManager.Instance.speedBoostFuel > 0.0f)
             {
-                moveDirection.y = jumpSpeed;
+                speedBoost = 5.0f;
+                GameManager.Instance.speedBoostFuel -= deltaTime;
+            }
+            else
+            {
+                speedBoost = 0.0f;
+                GameManager.Instance.speedBoostFuel += deltaTime * 0.5f;
+                if (GameManager.Instance.speedBoostFuel > GameManager.Instance.speedBoostFuelMax)
+                {
+                    GameManager.Instance.speedBoostFuel = GameManager.Instance.speedBoostFuelMax;
+                }
             }
         }
 

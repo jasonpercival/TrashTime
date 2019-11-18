@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class GameUI : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI collectedText;
-    public TextMeshProUGUI timeText;
+    public Text scoreText;
+    public Slider speedBoost;
+    public Text timeText;
     public Text infoText;
 
     public AudioClip goIndicator;
@@ -22,7 +21,7 @@ public class GameUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        collectedText.text = GameManager.Instance.trashCollected.ToString();
+        speedBoost.value = (GameManager.Instance.speedBoostFuel / GameManager.Instance.speedBoostFuelMax);
         scoreText.text = GameManager.Instance.playerScore.ToString();
 
         if (GameManager.Instance.isGameOver)
