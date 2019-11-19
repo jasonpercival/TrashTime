@@ -15,7 +15,7 @@ public class CanvasTutorial : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Start"))
+        if (Input.GetButtonDown("Start") || Input.GetButtonDown("Fire1"))
         {
             GameManager.Instance.StartGame();
         }    

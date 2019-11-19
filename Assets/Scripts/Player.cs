@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
             moveDirection *= (speed + speedBoost);
 
             // Booster activation
-            if (Input.GetButton("Jump") && GameManager.Instance.speedBoostFuel > 0.0f)
+            if ((Input.GetButton("Jump") || Input.GetButton("Fire2")) && GameManager.Instance.speedBoostFuel > 0.0f)
             {
                 speedBoost = 5.0f;
                 GameManager.Instance.speedBoostFuel -= deltaTime;

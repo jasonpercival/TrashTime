@@ -16,13 +16,17 @@ public class GameManager : MonoBehaviour
     public int playerScore = 0;
     public float speedBoostFuel = 3.0f;
     public float speedBoostFuelMax = 3.0f;
-    
+
     public float gameTime = 60;     // maximum time per game in seconds
     public float timeLeft = 0;      // current time left 
 
     public float startCountDown { get; private set; }
     public bool isGameActive { get; private set; }
     public bool isGameOver { get; private set; }
+
+    public int[] highscores;
+    public string[] initials;
+
 
     // TODO: Make player a prefab
     // public GameObject playerPrefab;
@@ -57,6 +61,39 @@ public class GameManager : MonoBehaviour
             }
 
             return _instance;
+        }
+    }
+
+    public void LoadScores()
+    {
+        highscores = new int[10];
+        initials = new string[10];
+
+        for (int i = 0; i < 10; i++)
+        {
+            // scores
+            if (PlayerPrefs.HasKey("SCORE" + i))
+            {
+                highscores[i] = PlayerPrefs.GetInt("SCORE" + i);
+            }
+            else
+            {
+                highscores[i] = 0;
+                PlayerPrefs.SetInt("SCORE" + i, highscores[i]);
+                PlayerPrefs.Save();
+            }
+
+            // initials
+            if (PlayerPrefs.HasKey("INITIALS" + i))
+            {
+                initials[i] = PlayerPrefs.GetString("INITIALS" + i);
+            }
+            else
+            {
+                initials[i] = "";
+                PlayerPrefs.SetString("INITIALS" + i, initials[i]);
+                PlayerPrefs.Save();
+            }
         }
     }
 
@@ -107,6 +144,12 @@ public class GameManager : MonoBehaviour
     {
         LoadLevel("Tutorial");
     }
+
+    public void ShowHighScores()
+    {
+        LoadLevel("Scores");
+    }
+
 
     public void QuitGame()
     {
@@ -159,7 +202,7 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
         isGameOver = true;
-        Invoke("LoadMainMenu", 5);
+        Invoke("ShowHighScores", 5);
     }
 
     public void UpdateScore(int amount)
