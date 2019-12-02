@@ -46,4 +46,12 @@ public class CanvasHighScore : MonoBehaviour
         PlayerPrefs.SetInt("SCORE9", 400); PlayerPrefs.SetString("INITIALS9", "OJH");
         PlayerPrefs.Save();
     }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameManager.Instance.LoadMainMenu();
+        }
+    }
 }
